@@ -29,6 +29,13 @@ public class HangmanTest {
     public void guessLetter_reteurnsTrueForLettersThatArePresent_true() throws Exception {
         Hangman testGame = new Hangman("test");
         Boolean expectedOutput = true;
-        assertEquals(expectedOutput, testGame.guessLetter("t"));
+        assertEquals(expectedOutput, testGame.guessLetter("e"));
+    }
+
+    @Test
+    public void showWord_returnsUnderscoresForLettersNotGuessedAndRevealsGuessedLetters______E() {
+        Hangman testGame = new Hangman("test");
+        String expectedOutput = "_ _ _ _ _ E";
+        assertEquals(expectedOutput, testGame.showWord());
     }
 }

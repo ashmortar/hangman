@@ -36,4 +36,9 @@ public class Hangman {
         return isALetter;
     }
 
+    public String showWord() {
+        String output = "";
+        return output;
+    }
+
 }
