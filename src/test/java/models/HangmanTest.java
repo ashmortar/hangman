@@ -10,4 +10,11 @@ public class HangmanTest {
         Hangman testGame = new Hangman("test");
         assertEquals(true, testGame instanceof Hangman);
     }
+
+    @Test
+    public void getWord_returnsCorrectWordForCurrentGame_TOGGLE() throws Exception {
+        Hangman testGame = new Hangman("test");
+        String expectedOutput = "TOGGLE";
+        assertEquals(expectedOutput, testGame.getWord());
+    }
 }
