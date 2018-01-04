@@ -93,7 +93,7 @@ public class HangmanTest {
         Boolean expectedOutput = true;
         testGame.guessLetter("t");
         testGame.guessLetter("o");
-        testGame.guessLetter("g");
+        testGame.guessLetter("ggit ");
         testGame.guessLetter("l");
         testGame.guessLetter("e");
         assertEquals(expectedOutput, testGame.hasWon());
