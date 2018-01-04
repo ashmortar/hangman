@@ -33,8 +33,9 @@ public class HangmanTest {
     }
 
     @Test
-    public void showWord_returnsUnderscoresForLettersNotGuessedAndRevealsGuessedLetters______E() {
+    public void showWord_returnsUnderscoresForLettersNotGuessedAndRevealsGuessedLetters______E() throws Exception {
         Hangman testGame = new Hangman("test");
+        testGame.guessLetter("e");
         String expectedOutput = "_ _ _ _ _ E";
         assertEquals(expectedOutput, testGame.showWord());
     }

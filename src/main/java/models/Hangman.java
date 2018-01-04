@@ -2,14 +2,28 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Hangman {
-
     private String gameWord;
+    private String[] gameWordArray;
+    private List<String> guessedLetters;
+
 
     public Hangman(String input) {
         String[] testArray = {"TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE"};
         gameWord = testArray[0];
+        gameWordArray = gameWord.split("");
+        guessedLetters = new ArrayList<String>();
+        listBuilder();
+    }
+
+    private List<String> output = new ArrayList<String>();
+    private void listBuilder() {
+        for (int i = 0; i < gameWordArray.length; i++) {
+            output.add("_");
+        }
     }
 
     public String getWord() {
@@ -18,12 +32,11 @@ public class Hangman {
 
     public Boolean guessLetter(String input) {
 
-        char guess = input.toUpperCase().charAt(0);
-        char[] gameWordArray = gameWord.toCharArray();
+        String guess = input.toUpperCase();
         Boolean isALetter = null;
 
-        for ( char thing : gameWordArray) {
-            if (guess == thing) {
+        for ( String thing : gameWordArray) {
+            if (guess.equals(thing)) {
                 //this is where a letter (or letters) would be revealed
                 isALetter = true;
                 break;
@@ -36,8 +49,7 @@ public class Hangman {
         return isALetter;
     }
 
-    public String showWord() {
-        String output = "";
+    public List showWord() {
         return output;
     }
 
