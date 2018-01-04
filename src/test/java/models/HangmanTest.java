@@ -69,4 +69,33 @@ public class HangmanTest {
         Boolean expectedOutput = false;
         assertEquals(expectedOutput, testGame.hasLost());
     }
+
+    @Test
+    public void hasLost_returnsTrueIfNoGuessesRemain_true() throws Exception {
+        Hangman testGame = new Hangman("test");
+        Boolean expectedOutput = true;
+        testGame.guessLetter("a");
+        testGame.guessLetter("b");
+        testGame.guessLetter("c");
+        testGame.guessLetter("d");
+        testGame.guessLetter("e");
+        testGame.guessLetter("f");
+        testGame.guessLetter("g");
+        testGame.guessLetter("h");
+        testGame.guessLetter("i");
+        testGame.guessLetter("j");
+        assertEquals(expectedOutput, testGame.hasLost());
+    }
+
+    @Test
+    public void hasWon_returnsTrueIfWordIsCompleted_true() throws Exception {
+        Hangman testGame = new Hangman("test");
+        Boolean expectedOutput = true;
+        testGame.guessLetter("t");
+        testGame.guessLetter("o");
+        testGame.guessLetter("g");
+        testGame.guessLetter("l");
+        testGame.guessLetter("e");
+        assertEquals(expectedOutput, testGame.hasWon());
+    }
 }

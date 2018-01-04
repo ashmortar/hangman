@@ -22,10 +22,12 @@ public class Hangman {
         listBuilder();
     }
 
+    private List<String> gameBoard = new ArrayList<String>();
     private List<String> output = new ArrayList<String>();
     private void listBuilder() {
         for (int i = 0; i < gameWordArray.length; i++) {
             output.add("_");
+            gameBoard.add(gameWordArray[i]);
         }
     }
 
@@ -79,6 +81,14 @@ public class Hangman {
             isLost = true;
         }
         return isLost;
+    }
+
+    public Boolean hasWon() {
+        if (output.equals(gameBoard)) {
+            isWon = true;
+        }
+        return isWon;
+
     }
 
 }
