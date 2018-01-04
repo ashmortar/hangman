@@ -24,4 +24,11 @@ public class HangmanTest {
         Boolean expectedOutput = false;
         assertEquals(expectedOutput, testGame.guessLetter("m"));
     }
+
+    @Test
+    public void guessLetter_reteurnsTrueForLettersThatArePresent_true() throws Exception {
+        Hangman testGame = new Hangman("test");
+        Boolean expectedOutput = true;
+        assertEquals(expectedOutput, testGame.guessLetter("t"));
+    }
 }

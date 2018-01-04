@@ -7,9 +7,9 @@ public class Hangman {
 
     private String gameWord;
 
-    public Hangman(String input){
-         String[] testArray = {"TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE"};
-         gameWord = testArray[0];
+    public Hangman(String input) {
+        String[] testArray = {"TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE", "TOGGLE"};
+        gameWord = testArray[0];
     }
 
     public String getWord() {
@@ -17,6 +17,23 @@ public class Hangman {
     }
 
     public Boolean guessLetter(String input) {
-        return true;
+
+        char guess = input.toUpperCase().charAt(0);
+        char[] gameWordArray = gameWord.toCharArray();
+        Boolean isALetter = null;
+
+        for ( char thing : gameWordArray) {
+            if (guess == thing) {
+                //this is where a letter (or letters) would be revealed
+                isALetter = true;
+                break;
+
+            } else {
+                //this means the guess was incorrect
+                isALetter =  false;
+            }
+        }
+        return isALetter;
     }
+
 }
