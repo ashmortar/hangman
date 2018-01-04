@@ -17,4 +17,11 @@ public class HangmanTest {
         String expectedOutput = "TOGGLE";
         assertEquals(expectedOutput, testGame.getWord());
     }
+
+    @Test
+    public void guessLetter_returnsFalseForLettersNotPresent_false() throws Exception {
+        Hangman testGame = new Hangman("test");
+        Boolean expectedOutput = false;
+        assertEquals(expectedOutput, testGame.guessLetter("m"));
+    }
 }
