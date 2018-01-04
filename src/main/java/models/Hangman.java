@@ -39,6 +39,12 @@ public class Hangman {
             if (guess.equals(thing)) {
                 //this is where a letter (or letters) would be revealed
                 isALetter = true;
+                for ( int i = 0; i < gameWordArray.length; i++) {
+                    if (guess.equals(gameWordArray[i])) {
+                        output.set(i, guess);
+                    }
+                }
+
                 break;
 
             } else {
@@ -49,8 +55,9 @@ public class Hangman {
         return isALetter;
     }
 
-    public List showWord() {
-        return output;
+    public String showWord() {
+        String outputString = String.join(" ", output);
+        return outputString;
     }
 
 }
