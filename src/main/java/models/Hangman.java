@@ -34,6 +34,7 @@ public class Hangman {
 
         String guess = input.toUpperCase();
         Boolean isALetter = null;
+        guessedLetters.add(guess);
 
         for ( String thing : gameWordArray) {
             if (guess.equals(thing)) {
@@ -58,6 +59,10 @@ public class Hangman {
     public String showWord() {
         String outputString = String.join(" ", output);
         return outputString;
+    }
+
+    public List getGuessedLetters() {
+        return guessedLetters;
     }
 
 }

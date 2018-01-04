@@ -2,6 +2,9 @@ package models;
 
 import org.junit.Test;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class HangmanTest {
@@ -38,5 +41,16 @@ public class HangmanTest {
         testGame.guessLetter("e");
         String expectedOutput = "_ _ _ _ _ E";
         assertEquals(expectedOutput, testGame.showWord());
+    }
+
+    @Test
+    public void getGuessedLetters_returnsAllLettersGuessed_ME() {
+        Hangman testGame = new Hangman("test");
+        testGame.guessLetter("m");
+        testGame.guessLetter("e");
+        List<String> expectedOutput = new ArrayList<String>();
+        expectedOutput.add("M");
+        expectedOutput.add("E");
+        assertEquals(expectedOutput, testGame.getGuessedLetters());
     }
 }
