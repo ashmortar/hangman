@@ -9,6 +9,9 @@ public class Hangman {
     private String gameWord;
     private String[] gameWordArray;
     private List<String> guessedLetters;
+    private Integer remainingGuesses = 10;
+    private boolean isLost = false;
+    private boolean isWon = false;
 
 
     public Hangman(String input) {
@@ -35,6 +38,7 @@ public class Hangman {
         String guess = input.toUpperCase();
         Boolean isALetter = null;
         guessedLetters.add(guess);
+        remainingGuesses -= 1;
 
         for ( String thing : gameWordArray) {
             if (guess.equals(thing)) {
@@ -63,6 +67,18 @@ public class Hangman {
 
     public List getGuessedLetters() {
         return guessedLetters;
+    }
+
+    public String getTurn() {
+        String hereYouGo = "You have " + remainingGuesses.toString() + " guesses remaining";
+        return hereYouGo;
+    }
+
+    public Boolean hasLost() {
+        if (remainingGuesses <= 0) {
+            isLost = true;
+        }
+        return isLost;
     }
 
 }

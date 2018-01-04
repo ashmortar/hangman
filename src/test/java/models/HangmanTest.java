@@ -44,7 +44,7 @@ public class HangmanTest {
     }
 
     @Test
-    public void getGuessedLetters_returnsAllLettersGuessed_ME() {
+    public void getGuessedLetters_returnsAllLettersGuessed_ME() throws Exception {
         Hangman testGame = new Hangman("test");
         testGame.guessLetter("m");
         testGame.guessLetter("e");
@@ -52,5 +52,21 @@ public class HangmanTest {
         expectedOutput.add("M");
         expectedOutput.add("E");
         assertEquals(expectedOutput, testGame.getGuessedLetters());
+    }
+
+    @Test
+    public void getTurn_returnsNumberOfWrongGuessesLeft_WRONGGUESSESREAMINING8()throws  Exception {
+        Hangman testGame = new Hangman("test");
+        testGame.guessLetter("m");
+        testGame.guessLetter("n");
+        String expectedOutput = "You have 8 guesses remaining";
+        assertEquals(expectedOutput, testGame.getTurn());
+    }
+
+    @Test
+    public void hasLost_returnsFalseIfGuessesRemain_false() throws Exception {
+        Hangman testGame = new Hangman("test");
+        Boolean expectedOutput = false;
+        assertEquals(expectedOutput, testGame.hasLost());
     }
 }
